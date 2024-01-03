@@ -10,26 +10,18 @@ export default function CarBrandEditLayout() {
     const api = new CarBrandsApi();
     let navigate = useNavigate();
     const { brandId } = useParams();
-    const [ formValues, setFormValues ] = useState({
-        cabrID: "",
-        cabrName: ""
-    });
     const [
-        carBrand, setCarBrand
+        formValues, setFormValues
     ] = useState([]);
     
     useEffect(() => {
         api.getCarBrandsByID(brandId).then(data => {
-            setCarBrand(data);
+            setFormValues(data);
         });
     },[]);
 
     const onSubmit = () => {
-        console.log(formValues);
-        api.createCarBrands(formValues).then(result => {
-            console.log(result);
-        }).catch(err => console.log(err));
-
+        api.updateCarBrands(formValues, brandId).catch(err => console.log(err));
         navigate('/car-brands', {state: {refresh: true} })
     }
 
@@ -43,9 +35,9 @@ export default function CarBrandEditLayout() {
                     placeholder="Brand Name" 
                     type="text" 
                     name='cabrName'
-                    value={carBrand !== null ? carBrand.cabrName : ''}
+                    value={formValues.cabrName}
                     onChange={(e) => {
-                        setFormValues({ ...formValues, cabrName: e.target.value });
+                        setFormValues({ cabrName: e.target.value });
                     }}>
 
                     </ClayInput>
