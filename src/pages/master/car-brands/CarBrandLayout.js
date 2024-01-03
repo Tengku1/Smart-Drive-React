@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { CarBrandsApi } from '../../../api/MasterApi'
 import { Body, Cell, Head, Row, Table } from '@clayui/core';
 import ClayButtonGroup from '@clayui/button/lib/Group';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PanelWidget from '../../../components/PanelWidget';
 import ClayButton, {ClayButtonWithIcon} from '@clayui/button';
 import ClayManagementToolbar from '@clayui/management-toolbar';
@@ -13,14 +13,18 @@ export default function CarBrandLayout() {
     const api = new CarBrandsApi();
     const [items, setItems] = useState([]);
     const [searchMobile, setSearchMobile] = useState(false);
+    const [sort, setSort] = useState(null);
+    const [searchValue, searchSetValue] = useState({value: ''});
+    const [refresh, setRefresh] = useState({ search: '' })
+    let navigate = useNavigate();
+    const state = useLocation();
 
     useEffect(() => {
         api.getCarBrands().then(data => {
             setItems(data);
         });
-    },[]);
-    const [sort, setSort] = useState(null);
-    
+        setRefresh(false)
+    },[refresh, state]);
     
     const onSortChange = useCallback(sort => {
         if (sort) {
@@ -44,9 +48,17 @@ export default function CarBrandLayout() {
     
         setSort(sort);
     }, []);
+
+    const onSearch = () => {
+        if(searchValue.value.length === 0) {
+            setRefresh(true)
+        }
+
+        setItems([...items.filter(el => el.cabrName.toLowerCase().includes(searchValue.value.toLowerCase() || ''))])
+    }
+
     return (
         <>
-            <br />
             <PanelWidget title={'Car Brands Page'} />
             <ClayManagementToolbar>
                 <ClayManagementToolbar.ItemList>
@@ -56,8 +68,11 @@ export default function CarBrandLayout() {
                         <ClayInput
                             aria-label="Search"
                             className="form-control input-group-inset input-group-inset-after"
-                            defaultValue="Red"
+                            placeholder='Search ...'
                             type="text"
+                            onChange={(event) => {
+                                searchSetValue({...searchValue, value : event.target.value})
+                            }}
                         />
                         <ClayInput.GroupInsetItem after tag="span">
                             <ClayButtonWithIcon
@@ -72,6 +87,10 @@ export default function CarBrandLayout() {
                             displayType="unstyled"
                             symbol="search"
                             type="submit"
+                            onClick={(e) => {
+                                onSearch()
+                                e.preventDefault()
+                            }}
                             />
                         </ClayInput.GroupInsetItem>
                         </ClayInput.GroupItem>
@@ -94,6 +113,7 @@ export default function CarBrandLayout() {
                         aria-label="Add"
                         className="nav-btn nav-btn-monospaced"
                         symbol="plus"
+                        onClick={() => navigate('add')}
                     />
                     </ClayManagementToolbar.Item>
                 </ClayManagementToolbar.ItemList>
@@ -113,7 +133,7 @@ export default function CarBrandLayout() {
                                 <Cell>{item.cabrName}</Cell>
                                 <Cell key={`Action - ${item.cabrID}`}>
                                     <ClayButtonGroup>
-                                        <Link to={`/car-brands/${item.cabrID}`} className='btn btn-info'>
+                                        <Link to={`/car-brands/edit/${item.cabrID}`} className='btn btn-info'>
                                             Edit
                                         </Link>
                                         <Link to='/car-brands' className='btn btn-danger'>
