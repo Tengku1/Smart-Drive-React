@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import categoryApi from '../../api/CarModelApi';
+import { CarModelsApi } from '../../../api/MasterApi'
 
 export default function CarModelLayout() {
+    const api = new CarModelsApi();
     const [
         carModel, setCarModel
     ] = useState([]);
 
     // phase componentDidMount
     useEffect(() => {
-        categoryApi.findRow().then(data => {
+        api.getCarModels().then(data => {
             setCarModel(data);
         });
     },[]);
@@ -17,10 +18,10 @@ export default function CarModelLayout() {
         <>
             <h2>Car Models Table</h2>
             <br />
-            <table>
+            <table className='table table-hover table-bordered'>
                 <thead>
                     <th>ID</th>
-                    <th>Car Model Name</th>
+                    <th>Model Name</th>
                 </thead>
                 <tbody>
                     {

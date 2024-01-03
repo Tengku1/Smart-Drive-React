@@ -13,14 +13,14 @@ const colStyles = {
 export default function MainLayout() {
   return (
     <>
-      <ClayLayout.ContainerFluid>
+      <ClayLayout.ContainerFluid className='margin-0 p-0 h-100'>
         <ClayLayout.Row>
-          <ClayLayout.Col size={12} style={colStyles}>
+          <ClayLayout.Col size={12} style={colStyles} className='p-0 border-0'>
             <Navbar/>
           </ClayLayout.Col>
-          <div className='col-12 jumbotron rounded-0'>
+          <ClayLayout.Col size={12} style={colStyles} className='px-5 py-5'>
             <Outlet />
-          </div>
+          </ClayLayout.Col>
         </ClayLayout.Row>
       </ClayLayout.ContainerFluid>
     </>

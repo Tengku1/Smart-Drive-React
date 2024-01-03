@@ -5,30 +5,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-  // const masterMenus = [
-  //   {
-  //     id: "1",
-  //     href: '/',
-  //     label: "Home",
-  //   },
-  //   {
-  //     id: "2",
-  //     items: [
-  //       {
-  //         id: "3",
-  //         href: '/master/car-brands',
-  //         label: 'Car Brands'
-  //       },
-  //       {
-  //         id: "4",
-  //         href: '/master/car-models',
-  //         label: 'Car Models'
-  //       }
-  //     ],
-  //     label: "Master"
-  //   }
-  // ];
-  
   const btnStyle = {
     padding: "9px 20px",
     borderColor: "var(--indigo)"
@@ -36,43 +12,122 @@ export default function Navbar() {
 
   return (
     <ClayNavigationBar triggerLabel="Navbar">
-      <ClayNavigationBar.Item active={window.location.pathname === '/'}>
+      <ClayNavigationBar.Item>
+        <h3 className='pt-1 mr-4 ml-3'>Smart Drive</h3>
+      </ClayNavigationBar.Item>
+      <ClayNavigationBar.Item>
         <Link to="/" className='btn bg-transparent text-dark border-0' style={btnStyle} type="button">
           Home
         </Link>
       </ClayNavigationBar.Item>
-      <ClayNavigationBar.Item active={window.location.pathname === '/master'}>
+      <ClayNavigationBar.Item>
         <ClayDropDown trigger={
-        <Button className='btn bg-transparent text-dark border-0'>Master</Button>
+        <Button className='btn bg-transparent text-dark border-0'>Car</Button>
         }>
           <ClayDropDown.ItemList>
             <ClayDropDown.Item
                 key='car-brands'
               >
-                <Link to="/master/car-brands" className='btn bg-transparent text-dark border-0 p-0 m-0 w-100 text-left' style={btnStyle} type="button">
+                <Link to="/car-brands" className='btn bg-transparent text-dark border-0 p-0 m-0 w-100 text-left' style={btnStyle} type="button">
                   Car Brands
                 </Link>
             </ClayDropDown.Item>
             <ClayDropDown.Item
                   key='car-models'
                 >
-                  <Link to="/master/car-models" className='btn bg-transparent text-dark border-0 p-0 m-0 w-100 text-left' style={btnStyle} type="button">
+                  <Link to="/car-models" className='btn bg-transparent text-dark border-0 p-0 m-0 w-100 text-left' style={btnStyle} type="button">
                     Car Models
+                  </Link>
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+                  key='car-series'
+                >
+                  <Link to="/car-series" className='btn bg-transparent text-dark border-0 p-0 m-0 w-100 text-left' style={btnStyle} type="button">
+                    Car Series
                   </Link>
             </ClayDropDown.Item>
           </ClayDropDown.ItemList>
         </ClayDropDown>
       </ClayNavigationBar.Item>
-      <ClayNavigationBar.Item active={window.location.pathname === '/users'}>
+      <ClayNavigationBar.Item>
+        <Link to="/inty" className='btn bg-transparent text-dark border-0' style={btnStyle} type="button">
+          Insurance
+        </Link>
+      </ClayNavigationBar.Item>
+      <ClayNavigationBar.Item>
         <ClayDropDown trigger={
-          <Button className='btn bg-transparent text-dark border-0'>Users</Button>
+          <Button className='btn bg-transparent text-dark border-0'>Area</Button>
           }>
           <ClayDropDown.ItemList>
             <ClayDropDown.Item
-                  key='car-models'
+                  key='zones'
                 >
-                  <Link to="/master/car-moels" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
-                    Car Models
+                  <Link to="/zones" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                    Zones
+                  </Link>
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+                  key='province'
+                >
+                  <Link to="/provinsi" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                    Province
+                  </Link>
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+                  key='cities'
+                >
+                  <Link to="/cities" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                    Cities
+                  </Link>
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+                  key='region-plat'
+                >
+                  <Link to="/regp" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                    Region Plat
+                  </Link>
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+                  key='area-work-group'
+                >
+                  <Link to="/arwg" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                    Area Work Group
+                  </Link>
+            </ClayDropDown.Item>
+          </ClayDropDown.ItemList>
+        </ClayDropDown>
+      </ClayNavigationBar.Item>
+      <ClayNavigationBar.Item>
+        <ClayDropDown trigger={
+          <Button className='btn bg-transparent text-dark border-0'>Templates</Button>
+          }>
+          <ClayDropDown.ItemList>
+            <ClayDropDown.Item
+                  key='template-type'
+                >
+                  <Link to="/template-type" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                    Template Type
+                  </Link>
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+                  key='template-service-task'
+                >
+                  <Link to="/template-type" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                    Template Task
+                  </Link>
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+                  key='template-task-workorder'
+                >
+                  <Link to="/template-type" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                    Template Task Work Order
+                  </Link>
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+                  key='template-task-workorder'
+                >
+                  <Link to="/template-type" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                    Template Insurance Premi
                   </Link>
             </ClayDropDown.Item>
           </ClayDropDown.ItemList>

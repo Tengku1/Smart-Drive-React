@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import categoryApi from '../../api/categoryApi';
+import categoryApi from '../../../api/categoryApi';
 
 export default function Category() {
     const [
