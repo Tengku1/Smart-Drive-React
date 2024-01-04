@@ -4,7 +4,7 @@ import config from "../../configs/axios.config";
 export class CarSeriesApi {
     async getCarSeries() {
         try {
-            const result = await axios.get(`${config.smartDrive}/cars`);
+            const result = await axios.get(`${config.smartDrive}/car-series`);
             return  result.data;
         } catch (error) {
             return error;
@@ -13,7 +13,7 @@ export class CarSeriesApi {
 
     async getCarSeriesByID(id) {
         try {
-            const result = await axios.get(`${config.smartDrive}/cars/${id}`);
+            const result = await axios.get(`${config.smartDrive}/car-series/${id}`);
             return  result.data;
         } catch (error) {
             return error;
@@ -22,7 +22,7 @@ export class CarSeriesApi {
 
     async createCarSeries(payload) {
         try {
-            const result = await axios.post(`${config.smartDrive}/cars`,payload);
+            const result = await axios.post(`${config.smartDrive}/car-series`,payload);
             return result;
         } catch (error) {
             return error;
@@ -31,7 +31,7 @@ export class CarSeriesApi {
 
     async updateCarSeries(payload, id) {
         try {
-            const result = await axios.put(`${config.smartDrive}/cars/${id}`,payload);
+            const result = await axios.put(`${config.smartDrive}/car-series/${id}`,payload);
             return result;
         } catch (error) {
             return error;

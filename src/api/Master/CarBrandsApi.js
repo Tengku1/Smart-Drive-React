@@ -5,7 +5,7 @@ export class CarBrandsApi {
     async getCarBrands() {
         try {
             const result = await axios.get(`${config.smartDrive}/carb`);
-            return  result.data;
+            return result.data;
         } catch (error) {
             return error;
         }

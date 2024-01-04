@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { CarBrandsApi } from '../../../api/MasterApi'
 import { Body, Cell, Head, Row, Table } from '@clayui/core';
-import ClayButtonGroup from '@clayui/button/lib/Group';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import PanelWidget from '../../../components/PanelWidget';
 import ClayButton, {ClayButtonWithIcon} from '@clayui/button';
 import ClayManagementToolbar from '@clayui/management-toolbar';
 import { ClayInput } from '@clayui/form';
 import ClayIcon from '@clayui/icon';
+import ClayDropDown from '@clayui/drop-down';
 
 export default function CarBrandLayout() {
     const api = new CarBrandsApi();
@@ -132,14 +132,17 @@ export default function CarBrandLayout() {
                                 <Cell>{item.cabrID}</Cell>
                                 <Cell>{item.cabrName}</Cell>
                                 <Cell key={`Action - ${item.cabrID}`}>
-                                    <ClayButtonGroup>
-                                        <Link to={`/car-brands/edit/${item.cabrID}`} className='btn btn-info'>
+                                    <ClayDropDown trigger={<ClayIcon className="inline-item inline-item-after" symbol="ellipsis-v"/>}>
+                                        <ClayDropDown.ItemList>
+                                        <ClayDropDown.Item onClick={() => navigate(`edit/${item.cabrID}`)}>
                                             Edit
-                                        </Link>
-                                        <Link to='/car-brands' className='btn btn-danger'>
-                                            Hapus
-                                        </Link>
-                                    </ClayButtonGroup>
+                                        </ClayDropDown.Item>
+                                        <ClayDropDown.Item
+                                            onClick={() => navigate('delete')}>
+                                            Delete
+                                        </ClayDropDown.Item>
+                                        </ClayDropDown.ItemList>
+                                    </ClayDropDown>
                                 </Cell>
                             </Row>
                         ))
