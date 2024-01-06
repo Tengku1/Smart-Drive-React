@@ -22,6 +22,7 @@ export class CarSeriesApi {
 
     async createCarSeries(payload) {
         try {
+            console.log(payload);
             const result = await axios.post(`${config.smartDrive}/car-series`,payload);
             return result;
         } catch (error) {

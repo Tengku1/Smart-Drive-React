@@ -10,6 +10,7 @@ import CarModelEditLayout from '../pages/master/car-models/CarModelEditLayout'
 import CarModelAddLayout from '../pages/master/car-models/CarModelAddLayout'
 import CarSeriesLayout from '../pages/master/car-series/CarSeriesLayout'
 import CarSeriesEditLayout from '../pages/master/car-series/CarSeriesEditLayout'
+import CarSeriesAddLayout from '../pages/master/car-series/CarSeriesAddLayout'
 
 export default function Routers() {
   return (
@@ -24,7 +25,7 @@ export default function Routers() {
           <Route path="/car-models/edit/:modelID" element=<CarModelEditLayout/> />
           <Route path="/car-models/add" element=<CarModelAddLayout/> />
           <Route path="/car-series" element=<CarSeriesLayout/> />
-          <Route path="/car-series/add" element=<CarModelAddLayout/> />
+          <Route path="/car-series/add" element=<CarSeriesAddLayout/> />
           <Route path="/car-series/edit/:seriesID" element=<CarSeriesEditLayout/> />
         </Route>
       </Routes>

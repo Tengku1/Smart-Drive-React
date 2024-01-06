@@ -33,9 +33,10 @@ export default function CarModelEditLayout() {
         api.getCarModelsByID(modelID).then(data => {
             setFormValues({
                 carmName: data.carmName,
-                carmCarbId: data.cabrId
+                carmCarbId: data.carmCarbId
             });
         });
+        
     },[]);
 
     const onSubmit = () => {
@@ -49,8 +50,9 @@ export default function CarModelEditLayout() {
                 <PanelWidget title={'Car Brands Form'} />
                 <ClayForm.Group className="form-group">
                     <label htmlFor="basicInput" className='mb-3'>Select a Brand</label>
-                    <ClaySelect className='mb-3' onChange={(e) => {
-                        setFormValues({...formValues, carmCarbId: e.target.value})
+                    <ClaySelect className='mb-3' defaultValue={formValues.carmCarbId} onChange={(e) => {
+                        setFormValues({...formValues, carmCarbId: parseInt(e.target.value)})
+                        console.log(formValues)
                     }}>
                         {(brands || []).map(item => (
                             <ClaySelect.Option
@@ -67,7 +69,7 @@ export default function CarModelEditLayout() {
                     name='cabrName'
                     value={formValues.carmName}
                     onChange={(e) => {
-                        setFormValues({ carmName: e.target.value });
+                        setFormValues({ ...formValues, carmName: e.target.value });
                     }}>
 
                     </ClayInput>

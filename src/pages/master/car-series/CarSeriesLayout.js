@@ -122,6 +122,7 @@ export default function CarSeriesLayout() {
                 <Head>
                     <Cell key='carsId' sortable>No</Cell>
                     <Cell key='carsName' sortable>Series Name</Cell>
+                    <Cell key='carmName' sortable>Model</Cell>
                     <Cell key='carsPassenger' sortable>Total Passenger</Cell>
                     <Cell key='actionHead'>Actions</Cell>
                 </Head>
@@ -132,6 +133,7 @@ export default function CarSeriesLayout() {
                             <Row key={item.carsId}>
                                 <Cell>{item.carsId}</Cell>
                                 <Cell>{item.carsName}</Cell>
+                                <Cell>{item.carModel.carmName}</Cell>
                                 <Cell>{item.carsPassenger}</Cell>
                                 <Cell key={`Action - ${item.carsId}`}>
                                     <ClayDropDown trigger={<ClayIcon className="inline-item inline-item-after" symbol="ellipsis-v"/>}>

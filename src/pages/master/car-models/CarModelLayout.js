@@ -121,7 +121,8 @@ export default function CarModelLayout() {
             <Table onSortChange={onSortChange} sort={sort}>
                 <Head>
                     <Cell key='carmID' sortable>No</Cell>
-                    <Cell key='carmName' sortable>Model Name</Cell>
+                    <Cell key='carmName' sortable>Model</Cell>
+                    <Cell key='carmName' sortable>Brand</Cell>
                     <Cell key='actionHead'>Actions</Cell>
                 </Head>
 
@@ -131,6 +132,7 @@ export default function CarModelLayout() {
                             <Row key={item.carmId}>
                                 <Cell>{item.carmId}</Cell>
                                 <Cell>{item.carmName}</Cell>
+                                <Cell>{item.carBrand.cabrName}</Cell>
                                 <Cell key={`Action - ${item.cabrID}`}>
                                     <ClayDropDown trigger={<ClayIcon className="inline-item inline-item-after" symbol="ellipsis-v"/>}>
                                         <ClayDropDown.ItemList>

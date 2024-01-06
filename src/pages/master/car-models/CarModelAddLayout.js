@@ -17,6 +17,8 @@ export default function CarModelAddLayout() {
         carmName: '',
         carmCarbId: null
     });
+
+    const [inputErrors, setInputErros] = useState(true);
     
     const [
         brands, setBrands
@@ -31,9 +33,15 @@ export default function CarModelAddLayout() {
         }
     },[]);
 
-    const onSubmit = () => {
-        api.createCarModels(formValues).catch(err => console.log(err));
-        navigate('/car-models', {state: {refresh: true} })
+    const onSubmit = (e) => {
+        e.preventDefault();
+        if (formValues.carmCarbId === null) {
+            setInputErros(true);
+        } else {
+            api.createCarModels(formValues)
+                .catch((err) => console.log(err))
+                .finally(() => navigate('/car-models', { state: { refresh: true } }));
+        }
     }
 
     return (
@@ -45,6 +53,7 @@ export default function CarModelAddLayout() {
                     <ClaySelect required className='mb-3' 
                     onChange={(e) => {
                         setFormValues({...formValues, carmCarbId: e.target.value})
+                        setInputErros(false)
                     }}
                     >
                         <ClaySelect.Option
