@@ -23,6 +23,9 @@ import CitiesEditLayout from '../pages/master/cities/CitiesEditLayout'
 import ProvinceLayout from '../pages/master/province/ProvinceLayout'
 import ProvinceAddLayout from '../pages/master/province/ProvinceAddLayout'
 import ProvinceEditLayout from '../pages/master/province/ProvinceEditLayout'
+import ZonesLayout from '../pages/master/zones/ZonesLayout'
+import ZonesAddLayout from '../pages/master/zones/ZonesAddLayout'
+import ZonesEditLayout from '../pages/master/zones/ZonesEditLayout'
 
 export default function Routers() {
   return (
@@ -51,6 +54,9 @@ export default function Routers() {
           <Route path="/province" element=<ProvinceLayout/> />
           <Route path="/province/add" element=<ProvinceAddLayout/> />
           <Route path="/province/edit/:provID" element=<ProvinceEditLayout/> />
+          <Route path="/zones" element=<ZonesLayout/> />
+          <Route path="/zones/add" element=<ZonesAddLayout/> />
+          <Route path="/zones/edit/:zoneID" element=<ZonesEditLayout/> />
         </Route>
       </Routes>
     </>
