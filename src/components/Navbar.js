@@ -55,6 +55,11 @@ export default function Navbar() {
         </Link>
       </ClayNavigationBar.Item>
       <ClayNavigationBar.Item>
+        <Link to="/categories" className='btn bg-transparent text-dark border-0' style={btnStyle} type="button">
+          Categories
+        </Link>
+      </ClayNavigationBar.Item>
+      <ClayNavigationBar.Item>
         <ClayDropDown trigger={
           <Button className='btn bg-transparent text-dark border-0'>Area</Button>
           }>

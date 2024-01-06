@@ -12,7 +12,6 @@ import ClayButton, {ClayButtonWithIcon} from '@clayui/button';
 export default function CarSeriesLayout() {
     const api = new CarSeriesApi();
     const [items, setItems] = useState([]);
-    const [searchMobile, setSearchMobile] = useState(false);
     const [sort, setSort] = useState(null);
     const [searchValue, searchSetValue] = useState({value: ''});
     const [refresh, setRefresh] = useState({ search: '' })
@@ -79,7 +78,6 @@ export default function CarSeriesLayout() {
                             aria-label="Close search"
                             className="navbar-breakpoint-d-none"
                             displayType="unstyled"
-                            onClick={() => setSearchMobile(false)}
                             symbol="times"
                             />
                             <ClayButtonWithIcon
