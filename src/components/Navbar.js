@@ -9,9 +9,12 @@ export default function Navbar() {
     padding: "9px 20px",
     borderColor: "var(--indigo)"
   };
+  const toLeftItem = {
+    marginLeft: "auto"
+  }
 
   return (
-    <ClayNavigationBar triggerLabel="Navbar">
+    <ClayNavigationBar triggerLabel="Navbar" className="justify-content-between">
       <ClayNavigationBar.Item>
         <h3 className='pt-1 mr-4 ml-3'>Smart Drive</h3>
       </ClayNavigationBar.Item>
@@ -50,7 +53,7 @@ export default function Navbar() {
         </ClayDropDown>
       </ClayNavigationBar.Item>
       <ClayNavigationBar.Item>
-        <Link to="/inty" className='btn bg-transparent text-dark border-0' style={btnStyle} type="button">
+        <Link to="/insurance-type" className='btn bg-transparent text-dark border-0' style={btnStyle} type="button">
           Insurance
         </Link>
       </ClayNavigationBar.Item>

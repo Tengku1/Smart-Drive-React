@@ -4,6 +4,7 @@ import { CitiesApi } from "./Master/CitiesApi";
 import { InboxMessagingApi } from "./Master/InboxMessagingApi";
 import { CarModelsApi } from "./Master/CarModelsApi";
 import { CarSeriesApi } from "./Master/CarSeriesApi";
+import { InsuranceApi } from "./Master/InsuranceApi";
 
 export {
     CarBrandsApi,
@@ -11,5 +12,6 @@ export {
     CitiesApi,
     InboxMessagingApi,
     CarModelsApi,
-    CarSeriesApi
+    CarSeriesApi,
+    InsuranceApi
 }

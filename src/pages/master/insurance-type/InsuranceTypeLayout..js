@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { CategoriesApi } from '../../../api/MasterApi'
 import { Body, Cell, Head, Row, Table } from '@clayui/core';
 import ClayDropDown from '@clayui/drop-down';
 import ClayIcon from '@clayui/icon';
@@ -8,9 +7,10 @@ import PanelWidget from '../../../components/PanelWidget';
 import ClayManagementToolbar from '@clayui/management-toolbar';
 import { ClayInput } from '@clayui/form';
 import ClayButton, {ClayButtonWithIcon} from '@clayui/button';
+import { InsuranceApi } from '../../../api/MasterApi';
 
-export default function CategoriesLayout() {
-    const api = new CategoriesApi();
+export default function InsuranceTypeLayout() {
+    const api = new InsuranceApi();
     const [items, setItems] = useState([]);
     const [sort, setSort] = useState(null);
     const [searchValue, searchSetValue] = useState({value: ''});
@@ -19,7 +19,7 @@ export default function CategoriesLayout() {
     const state = useLocation();
 
     useEffect(() => {
-        api.getCategories().then(data => {
+        api.getInsurances().then(data => {
             setItems(data);
         });
         setRefresh(false)
@@ -53,12 +53,12 @@ export default function CategoriesLayout() {
             setRefresh(true)
         }
 
-        setItems([...items.filter(el => el.cateName.toLowerCase().includes(searchValue.value.toLowerCase() || ''))])
+        setItems([...items.filter(el => el.intyName.toLowerCase().includes(searchValue.value.toLowerCase() || ''))])
     }
 
     return (
         <>
-            <PanelWidget title={'Category Page'} />
+            <PanelWidget title={'Insurance Page'} />
             <ClayManagementToolbar>
                 <ClayManagementToolbar.ItemList>
                     <ClayManagementToolbar.Search>
@@ -118,21 +118,21 @@ export default function CategoriesLayout() {
             </ClayManagementToolbar>
             <Table onSortChange={onSortChange} sort={sort}>
                 <Head>
-                    <Cell key='carsName' sortable>ID</Cell>
-                    <Cell key='carmName' sortable>Name</Cell>
+                    <Cell key='intyName' sortable>Name</Cell>
+                    <Cell key='intyDesc' sortable>Description</Cell>
                     <Cell key='actionHead'>Actions</Cell>
                 </Head>
 
                 <Body defaultItems={items}>
                     {
                         (items || []).map(item => (
-                            <Row key={item.cateId}>
-                                <Cell>{item.cateId}</Cell>
-                                <Cell>{item.cateName}</Cell>
+                            <Row key={item.intyName}>
+                                <Cell>{item.intyName}</Cell>
+                                <Cell>{item.intyDesc}</Cell>
                                 <Cell key={`Action - ${item.carsId}`}>
                                     <ClayDropDown trigger={<ClayIcon className="inline-item inline-item-after" symbol="ellipsis-v"/>}>
                                         <ClayDropDown.ItemList>
-                                        <ClayDropDown.Item onClick={() => navigate(`edit/${item.cateId}`)}>
+                                        <ClayDropDown.Item onClick={() => navigate(`edit/${item.intyName}`)}>
                                             Edit
                                         </ClayDropDown.Item>
                                         <ClayDropDown.Item

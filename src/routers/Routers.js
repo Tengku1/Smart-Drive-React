@@ -14,6 +14,9 @@ import CarSeriesAddLayout from '../pages/master/car-series/CarSeriesAddLayout'
 import CategoriesLayout from '../pages/master/categories/CategoryLayout'
 import CategoryAddLayout from '../pages/master/categories/CategoryAddLayout'
 import CategoryEditLayout from '../pages/master/categories/CategoryEditLayout'
+import InsuranceTypeLayout from '../pages/master/insurance-type/InsuranceTypeLayout.'
+import InsuranceTypeEditLayout from '../pages/master/insurance-type/InsuranceTypeEditLayout'
+import InsuranceTypeAdLayout from '../pages/master/insurance-type/InsuranceTypeAddLayout'
 
 export default function Routers() {
   return (
@@ -33,6 +36,9 @@ export default function Routers() {
           <Route path="/categories" element=<CategoriesLayout/> />
           <Route path="/categories/add" element=<CategoryAddLayout/> />
           <Route path="/categories/edit/:cateID" element=<CategoryEditLayout/> />
+          <Route path="/insurance-type" element=<InsuranceTypeLayout/> />
+          <Route path="/insurance-type/add" element=<InsuranceTypeAdLayout/> />
+          <Route path="/insurance-type/edit/:intyName" element=<InsuranceTypeEditLayout/> />
         </Route>
       </Routes>
     </>
