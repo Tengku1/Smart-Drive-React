@@ -5,6 +5,9 @@ import { InboxMessagingApi } from "./Master/InboxMessagingApi";
 import { CarModelsApi } from "./Master/CarModelsApi";
 import { CarSeriesApi } from "./Master/CarSeriesApi";
 import { InsuranceApi } from "./Master/InsuranceApi";
+import { ProvinceApi } from "./Master/ProvinceApi";
+import { ZonesApi } from "./Master/ZonesApi";
+import { AreaWorkGroupApi } from "./Master/AreaWorkGroupApi";
 
 export {
     CarBrandsApi,
@@ -13,5 +16,8 @@ export {
     InboxMessagingApi,
     CarModelsApi,
     CarSeriesApi,
-    InsuranceApi
+    InsuranceApi,
+    ProvinceApi,
+    ZonesApi,
+    AreaWorkGroupApi,
 }

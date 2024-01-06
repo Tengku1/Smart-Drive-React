@@ -16,7 +16,9 @@ export default function Navbar() {
   return (
     <ClayNavigationBar triggerLabel="Navbar" className="justify-content-between">
       <ClayNavigationBar.Item>
-        <h3 className='pt-1 mr-4 ml-3'>Smart Drive</h3>
+        <Link to="/" className='btn bg-transparent text-dark border-0' style={btnStyle} type="button">
+          <h3 className='pt-1 mr-4 ml-3'>Smart Drive</h3>
+        </Link>
       </ClayNavigationBar.Item>
       <ClayNavigationBar.Item>
         <Link to="/" className='btn bg-transparent text-dark border-0' style={btnStyle} type="button">
@@ -77,7 +79,7 @@ export default function Navbar() {
             <ClayDropDown.Item
                   key='province'
                 >
-                  <Link to="/provinsi" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                  <Link to="/province" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
                     Province
                   </Link>
             </ClayDropDown.Item>

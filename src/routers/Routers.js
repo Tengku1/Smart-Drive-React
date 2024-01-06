@@ -17,6 +17,12 @@ import CategoryEditLayout from '../pages/master/categories/CategoryEditLayout'
 import InsuranceTypeLayout from '../pages/master/insurance-type/InsuranceTypeLayout.'
 import InsuranceTypeEditLayout from '../pages/master/insurance-type/InsuranceTypeEditLayout'
 import InsuranceTypeAdLayout from '../pages/master/insurance-type/InsuranceTypeAddLayout'
+import CitiesLayout from '../pages/master/cities/CitiesLayout'
+import CitiesAddLayout from '../pages/master/cities/CitiesAddLayout'
+import CitiesEditLayout from '../pages/master/cities/CitiesEditLayout'
+import ProvinceLayout from '../pages/master/province/ProvinceLayout'
+import ProvinceAddLayout from '../pages/master/province/ProvinceAddLayout'
+import ProvinceEditLayout from '../pages/master/province/ProvinceEditLayout'
 
 export default function Routers() {
   return (
@@ -39,6 +45,12 @@ export default function Routers() {
           <Route path="/insurance-type" element=<InsuranceTypeLayout/> />
           <Route path="/insurance-type/add" element=<InsuranceTypeAdLayout/> />
           <Route path="/insurance-type/edit/:intyName" element=<InsuranceTypeEditLayout/> />
+          <Route path="/cities" element=<CitiesLayout/> />
+          <Route path="/cities/add" element=<CitiesAddLayout/> />
+          <Route path="/cities/edit/:cityID" element=<CitiesEditLayout/> />
+          <Route path="/province" element=<ProvinceLayout/> />
+          <Route path="/province/add" element=<ProvinceAddLayout/> />
+          <Route path="/province/edit/:provID" element=<ProvinceEditLayout/> />
         </Route>
       </Routes>
     </>
