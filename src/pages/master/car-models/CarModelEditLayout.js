@@ -36,7 +36,6 @@ export default function CarModelEditLayout() {
                 carmCarbId: data.carmCarbId
             });
         });
-        
     },[]);
 
     const onSubmit = () => {
