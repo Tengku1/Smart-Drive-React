@@ -9,9 +9,6 @@ export default function Navbar() {
     padding: "9px 20px",
     borderColor: "var(--indigo)"
   };
-  const toLeftItem = {
-    marginLeft: "auto"
-  }
 
   return (
     <ClayNavigationBar triggerLabel="Navbar" className="justify-content-between">
@@ -122,21 +119,21 @@ export default function Navbar() {
             <ClayDropDown.Item
                   key='template-service-task'
                 >
-                  <Link to="/template-type" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                  <Link to="/template-task" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
                     Template Task
                   </Link>
             </ClayDropDown.Item>
             <ClayDropDown.Item
                   key='template-task-workorder'
                 >
-                  <Link to="/template-type" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                  <Link to="/work-order" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
                     Template Task Work Order
                   </Link>
             </ClayDropDown.Item>
             <ClayDropDown.Item
                   key='template-task-workorder'
                 >
-                  <Link to="/template-type" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                  <Link to="/insurance-premi" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
                     Template Insurance Premi
                   </Link>
             </ClayDropDown.Item>

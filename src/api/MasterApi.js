@@ -10,7 +10,7 @@ import { ZonesApi } from "./Master/ZonesApi";
 import { AreaWorkGroupApi } from "./Master/AreaWorkGroupApi";
 import { RegionPlatApi } from "./Master/RegionPlatApi";
 import { TemplateInsurancePremiApi } from "./Master/TemplateInsurancePremiApi";
-import { TemplateWorkOrder } from "./Master/TemplateWorkOrderAPi";
+import { TemplateWorkOrderApi } from "./Master/TemplateWorkOrderApi";
 import { TemplateTypeApi } from "./Master/TemplateTypeApi";
 import { TemplateTaskApi } from "./Master/TemplateTaskApi";
 
@@ -28,6 +28,6 @@ export {
     AreaWorkGroupApi,
     TemplateInsurancePremiApi,
     TemplateTypeApi,
-    TemplateWorkOrder,
+    TemplateWorkOrderApi,
     TemplateTaskApi
 }

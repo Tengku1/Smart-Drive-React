@@ -26,6 +26,24 @@ import ProvinceEditLayout from '../pages/master/province/ProvinceEditLayout'
 import ZonesLayout from '../pages/master/zones/ZonesLayout'
 import ZonesAddLayout from '../pages/master/zones/ZonesAddLayout'
 import ZonesEditLayout from '../pages/master/zones/ZonesEditLayout'
+import RegionPlatLayout from '../pages/master/region-plat/RegionPlatLayout'
+import RegionPlatAddLayout from '../pages/master/region-plat/RegionPlatAddLayout'
+import RegionPlatEditLayout from '../pages/master/region-plat/RegionPlatEditLayout'
+import AreaWorkGroupLayout from '../pages/master/area-work-groups/AreaWorkGroupLayout'
+import AreaWorkGroupAddLayout from '../pages/master/area-work-groups/AreaWorkGroupAddLayout'
+import AreaWorkGroupEditLayout from '../pages/master/area-work-groups/AreaWorkGroupEditLayout'
+import TemplateTypeLayout from '../pages/master/template-type/TemplateTypeLayout'
+import TemplateTypeAddLayout from '../pages/master/template-type/TemplateTypeAddLayout'
+import TemplateTypeEditLayout from '../pages/master/template-type/TemplateTypeEditLayout'
+import WorkOrderLayout from '../pages/master/template-work-orders/WorkOrderLayout'
+import WorkOrderAddLayout from '../pages/master/template-work-orders/WorkOrderAddLayout'
+import WorkOrderEditLayout from '../pages/master/template-work-orders/WorkOrderEditLayout'
+import TemplateInsurancePremiEditLayout from '../pages/master/template-insurance-premi/TemplateInsurancePremiEditLayout'
+import TemplateInsurancePremiLayout from '../pages/master/template-insurance-premi/TemplateInsurancePremiLayout'
+import TemplateInsurancePremiAddLayout from '../pages/master/template-insurance-premi/TemplateInsurancePremiAddLayout'
+import TemplateTaskLayout from '../pages/master/template-task/TemplateTaskLayout'
+import TemplateTaskAddLayout from '../pages/master/template-task/TemplateTaskAddLayout'
+import TemplateTaskEditLayout from '../pages/master/template-task/TemplateTaskEditLayout'
 
 export default function Routers() {
   return (
@@ -57,6 +75,24 @@ export default function Routers() {
           <Route path="/zones" element=<ZonesLayout/> />
           <Route path="/zones/add" element=<ZonesAddLayout/> />
           <Route path="/zones/edit/:zoneID" element=<ZonesEditLayout/> />
+          <Route path="/region-plat" element=<RegionPlatLayout/> />
+          <Route path="/region-plat/add" element=<RegionPlatAddLayout/> />
+          <Route path="/region-plat/edit/:regpID" element=<RegionPlatEditLayout/> />
+          <Route path="/area-work-group" element=<AreaWorkGroupLayout/> />
+          <Route path="/area-work-group/add" element=<AreaWorkGroupAddLayout/> />
+          <Route path="/area-work-group/edit/:arwgCode" element=<AreaWorkGroupEditLayout/> />
+          <Route path="/template-type" element=<TemplateTypeLayout/> />
+          <Route path="/template-type/add" element=<TemplateTypeAddLayout/> />
+          <Route path="/template-type/edit/:tetyID" element=<TemplateTypeEditLayout/> />
+          <Route path="/work-order" element=<WorkOrderLayout/> />
+          <Route path="/work-order/add" element=<WorkOrderAddLayout/> />
+          <Route path="/work-order/edit/:tewoID" element=<WorkOrderEditLayout/> />
+          <Route path="/template-task" element=<TemplateTaskLayout/> />
+          <Route path="/template-task/add" element=<TemplateTaskAddLayout/> />
+          <Route path="/template-task/edit/:taskID" element=<TemplateTaskEditLayout/> />
+          <Route path="/insurance-premi" element=<TemplateInsurancePremiLayout/> />
+          <Route path="/insurance-premi/add" element=<TemplateInsurancePremiAddLayout/> />
+          <Route path="/insurance-premi/edit/:temiID" element=<TemplateInsurancePremiEditLayout/> />
         </Route>
       </Routes>
     </>

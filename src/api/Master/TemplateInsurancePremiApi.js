@@ -2,7 +2,7 @@ import axios from "axios";
 import config from "../../configs/axios.config";
 
 export class TemplateInsurancePremiApi {
-    async getRegp() {
+    async getTemi() {
         try {
             const result = await axios.get(`${config.smartDrive}/temi`);
             return  result.data;
@@ -22,6 +22,7 @@ export class TemplateInsurancePremiApi {
 
     async create(payload) {
         try {
+            console.log(payload)
             const result = await axios.post(`${config.smartDrive}/temi`, payload);
             return  result.data;
         } catch (error) {
