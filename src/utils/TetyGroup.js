@@ -1,0 +1,22 @@
+const TetyNameEnum = {
+    CHECK_FEASIBILITY: "FEASIBILITY",
+    SERVICE_POLIS: "CREATE_POLIS",
+    SERVICE_CLAIM: "CLAIM",
+    ORDER_CREATE: "CREATE",
+    ORDER_MODIFY: "MODIFY",
+    STATUS_OPEN: "OPEN",
+    STATUS_PENDING: "PENDING",
+    STATUS_CANCELLED: "CANCELLED",
+    STATUS_CLOSED: "CLOSED",
+}
+
+const TetyGroupEnum = {
+    SERVICES: "SERVICES",
+    ORDER: "ORDER",
+    STATUS: "STATUS"
+}
+
+module.exports = {
+    TetyNameEnum,
+    TetyGroupEnum
+}
