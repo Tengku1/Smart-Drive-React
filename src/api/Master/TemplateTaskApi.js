@@ -2,7 +2,7 @@ import axios from "axios";
 import config from "../../configs/axios.config";
 
 export class TemplateTaskApi {
-    async getRegp() {
+    async getTesta() {
         try {
             const result = await axios.get(`${config.smartDrive}/testa`);
             return  result.data;

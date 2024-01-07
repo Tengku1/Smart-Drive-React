@@ -1,8 +1,8 @@
 import axios from "axios";
 import config from "../../configs/axios.config";
 
-export class TemplateWorkOrder {
-    async getRegp() {
+export class TemplateWorkOrderApi {
+    async getTewo() {
         try {
             const result = await axios.get(`${config.smartDrive}/tewo`);
             return  result.data;
