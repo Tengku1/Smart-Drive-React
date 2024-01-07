@@ -8,11 +8,17 @@ import { InsuranceApi } from "./Master/InsuranceApi";
 import { ProvinceApi } from "./Master/ProvinceApi";
 import { ZonesApi } from "./Master/ZonesApi";
 import { AreaWorkGroupApi } from "./Master/AreaWorkGroupApi";
+import { RegionPlatApi } from "./Master/RegionPlatApi";
+import { TemplateInsurancePremiApi } from "./Master/TemplateInsurancePremiApi";
+import { TemplateWorkOrder } from "./Master/TemplateWorkOrderAPi";
+import { TemplateTypeApi } from "./Master/TemplateTypeApi";
+import { TemplateTaskApi } from "./Master/TemplateTaskApi";
 
 export {
     CarBrandsApi,
     CategoriesApi,
     CitiesApi,
+    RegionPlatApi,
     InboxMessagingApi,
     CarModelsApi,
     CarSeriesApi,
@@ -20,4 +26,8 @@ export {
     ProvinceApi,
     ZonesApi,
     AreaWorkGroupApi,
+    TemplateInsurancePremiApi,
+    TemplateTypeApi,
+    TemplateWorkOrder,
+    TemplateTaskApi
 }
