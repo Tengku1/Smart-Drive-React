@@ -93,14 +93,14 @@ export default function Navbar() {
             <ClayDropDown.Item
                   key='region-plat'
                 >
-                  <Link to="/regp" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                  <Link to="/region-plat" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
                     Region Plat
                   </Link>
             </ClayDropDown.Item>
             <ClayDropDown.Item
                   key='area-work-group'
                 >
-                  <Link to="/arwg" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
+                  <Link to="/area-work-group" className='btn bg-transparent text-dark border-0 px-0' style={btnStyle} type="button">
                     Area Work Group
                   </Link>
             </ClayDropDown.Item>
