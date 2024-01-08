@@ -2,9 +2,9 @@ import axios from "axios";
 import config from "../../configs/axios.config";
 
 export class CarBrandsApi {
-    async getCarBrands() {
+    async getCarBrands(page,size) {
         try {
-            const result = await axios.get(`${config.smartDrive}/carb`);
+            const result = await axios.get(`${config.smartDrive}/carb?page=${page}&size=${size}`);
             return result.data;
         } catch (error) {
             return error;

@@ -26,7 +26,7 @@ export default function WorkOrderAddLayout() {
 
     useEffect(() => {
         templateTypeApi.getTesta().then(data => {
-            setTask(data);
+            setTask(data.content);
         });
         if (task.length > 0) {
             setFormValues({ ...formValues, tewoTestaId: task[0].testaId });

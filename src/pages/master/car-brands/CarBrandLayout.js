@@ -8,22 +8,31 @@ import ClayManagementToolbar from '@clayui/management-toolbar';
 import { ClayInput } from '@clayui/form';
 import ClayIcon from '@clayui/icon';
 import ClayDropDown from '@clayui/drop-down';
+import { ClayPaginationWithBasicItems } from '@clayui/pagination';
 
 export default function CarBrandLayout() {
     const api = new CarBrandsApi();
     const [items, setItems] = useState([]);
     const [sort, setSort] = useState(null);
     const [searchValue, searchSetValue] = useState({value: ''});
-    const [refresh, setRefresh] = useState({ search: '' })
+    const [refresh, setRefresh] = useState({ search: '' });
+    const [activePage, setActivePage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
     let navigate = useNavigate();
     const state = useLocation();
 
     useEffect(() => {
-        api.getCarBrands().then(data => {
-            setItems(data);
+        api.getCarBrands(activePage-1,10).then(data => {
+            setItems(data.content);
+            setTotalPages(data.totalPages);
         });
         setRefresh(false)
     },[refresh, state]);
+
+    const onPaginated = (newActivePage) => {
+        setActivePage(newActivePage)
+        setRefresh(true)
+    }
     
     const onSortChange = useCallback(sort => {
         if (sort) {
@@ -147,6 +156,13 @@ export default function CarBrandLayout() {
                     }
                 </Body>
             </Table>
+            <ClayPaginationWithBasicItems
+            active={activePage}
+            ellipsisBuffer={2}
+            ellipsisProps={{ "aria-label": "More", title: "More" }}
+            onActiveChange={onPaginated}
+            totalPages={totalPages}
+            />
         </>
     )
 }

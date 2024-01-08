@@ -22,7 +22,7 @@ export default function CarModelEditLayout() {
 
     useEffect(() => {
         carModelApi.getCarModels().then(data => {
-            setModels(data);
+            setModels(data.content);
         });
     },[]);
 

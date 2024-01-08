@@ -30,13 +30,13 @@ export default function TemplateInsurancePremiEditLayout() {
 
     useEffect(() => {
         insuranceApi.getInsurances().then(data => {
-            setInsurance(data);
+            setInsurance(data.content);
         });
         categoryApi.getCategories().then(data => {
-            setCategory(data);
+            setCategory(data.content);
         });
         zonesApi.getZones().then(data => {
-            setZones(data);
+            setZones(data.content);
         });
 
         api.getByID(temiID).then(data => {

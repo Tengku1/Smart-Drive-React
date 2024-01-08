@@ -26,7 +26,7 @@ export default function CarModelAddLayout() {
 
     useEffect(() => {
         carBrandApi.getCarBrands().then(data => {
-            setBrands(data);
+            setBrands(data.content);
         });
         if (brands.length > 0) {
             setFormValues({ ...formValues, carmCarbId: brands[0].cabrID });

@@ -29,7 +29,7 @@ export default function TemplateTaskAddLayout() {
 
     useEffect(() => {
         templateTypeApi.getTety().then(data => {
-            setType(data);
+            setType(data.content);
         });
         if (type.length > 0) {
             setFormValues({ ...formValues, testaTetyId: type[0].tetyId });

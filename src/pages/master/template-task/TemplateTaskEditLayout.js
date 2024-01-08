@@ -22,7 +22,7 @@ export default function TemplateTaskAddLayout() {
 
     useEffect(() => {
         templateTypeApi.getTety().then(data => {
-            setType(data);
+            setType(data.content);
         });
         api.getByID(taskID).then(data => {
             setFormValues({

@@ -23,7 +23,7 @@ export default function CitiesAddLayout() {
 
     useEffect(() => {
         provinceApi.getProvince().then(data => {
-            setProvince(data);
+            setProvince(data.content);
         });
         if (province.length > 0) {
             setFormValues({ ...formValues, cityProvId: province[0].provId });

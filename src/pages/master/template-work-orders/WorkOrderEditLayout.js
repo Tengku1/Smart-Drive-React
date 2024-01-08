@@ -25,7 +25,7 @@ export default function WorkOrderEditLayout() {
 
     useEffect(() => {
         templateTypeApi.getTesta().then(data => {
-            setTask(data);
+            setTask(data.content);
         });
         api.getByID(tewoID).then(data => {
             setFormValues({

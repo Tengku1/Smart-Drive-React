@@ -25,7 +25,7 @@ export default function CarModelEditLayout() {
 
     useEffect(() => {
         carBrandApi.getCarBrands().then(data => {
-            setBrands(data);
+            setBrands(data.content);
         });
     },[]);
 

@@ -21,7 +21,7 @@ export default function ProvinceEditLayout() {
 
     useEffect(() => {
         zonesApi.getZones().then(data => {
-            setZones(data);
+            setZones(data.content);
         });
     },[]);
 

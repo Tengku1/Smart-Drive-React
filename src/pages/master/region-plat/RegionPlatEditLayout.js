@@ -22,7 +22,7 @@ export default function RegionPlatEditLayout() {
 
     useEffect(() => {
         provinceApi.getProvince().then(data => {
-            setProvince(data);
+            setProvince(data.content);
         });
     },[]);
 

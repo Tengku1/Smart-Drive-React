@@ -23,7 +23,7 @@ export default function CarSeriesAddLayout() {
 
     useEffect(() => {
         carModelApi.getCarModels().then(data => {
-            setModels(data);
+            setModels(data.content);
         });
         if (models.length > 0) {
             setFormValues({ ...formValues, carsCarmId: models[0].carmId });

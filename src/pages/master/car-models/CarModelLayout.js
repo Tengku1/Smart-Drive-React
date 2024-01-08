@@ -8,6 +8,7 @@ import PanelWidget from '../../../components/PanelWidget';
 import ClayManagementToolbar from '@clayui/management-toolbar';
 import { ClayInput } from '@clayui/form';
 import ClayButton, {ClayButtonWithIcon} from '@clayui/button';
+import { ClayPaginationWithBasicItems } from '@clayui/pagination';
 
 export default function CarModelLayout() {
     const api = new CarModelsApi();
@@ -17,10 +18,13 @@ export default function CarModelLayout() {
     const [refresh, setRefresh] = useState({ search: '' })
     let navigate = useNavigate();
     const state = useLocation();
+    const [activePage, setActivePage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
         api.getCarModels().then(data => {
-            setItems(data);
+            setItems(data.content);
+            setTotalPages(data.totalPages);
         });
         setRefresh(false)
     },[refresh, state]);
@@ -54,6 +58,11 @@ export default function CarModelLayout() {
         }
 
         setItems([...items.filter(el => el.carmName.toLowerCase().includes(searchValue.value.toLowerCase() || ''))])
+    }
+
+    const onPaginated = (newActivePage) => {
+        setActivePage(newActivePage)
+        setRefresh(true)
     }
 
     return (
@@ -149,6 +158,13 @@ export default function CarModelLayout() {
                     }
                 </Body>
             </Table>
+            <ClayPaginationWithBasicItems
+            active={activePage}
+            ellipsisBuffer={2}
+            ellipsisProps={{ "aria-label": "More", title: "More" }}
+            onActiveChange={onPaginated}
+            totalPages={totalPages}
+            />
         </>
     )
 }

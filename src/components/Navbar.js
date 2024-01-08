@@ -9,6 +9,12 @@ export default function Navbar() {
     padding: "9px 20px",
     borderColor: "var(--indigo)"
   };
+  const activeLink = {
+    borderBottom: "3px solid #0b5fff"
+  }
+  const nonActiveLink = {
+    border: "none"
+  }
 
   return (
     <ClayNavigationBar triggerLabel="Navbar" className="justify-content-between">
@@ -17,7 +23,7 @@ export default function Navbar() {
           <h3 className='pt-1 mr-4 ml-3'>Smart Drive</h3>
         </Link>
       </ClayNavigationBar.Item>
-      <ClayNavigationBar.Item>
+      <ClayNavigationBar.Item style={window.location.pathname === '/' ? activeLink : nonActiveLink}>
         <Link to="/" className='btn bg-transparent text-dark border-0' style={btnStyle} type="button">
           Home
         </Link>

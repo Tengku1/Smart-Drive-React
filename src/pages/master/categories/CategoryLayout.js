@@ -8,6 +8,7 @@ import PanelWidget from '../../../components/PanelWidget';
 import ClayManagementToolbar from '@clayui/management-toolbar';
 import { ClayInput } from '@clayui/form';
 import ClayButton, {ClayButtonWithIcon} from '@clayui/button';
+import { ClayPaginationWithBasicItems } from '@clayui/pagination';
 
 export default function CategoriesLayout() {
     const api = new CategoriesApi();
@@ -15,12 +16,15 @@ export default function CategoriesLayout() {
     const [sort, setSort] = useState(null);
     const [searchValue, searchSetValue] = useState({value: ''});
     const [refresh, setRefresh] = useState({ search: '' })
+    const [activePage, setActivePage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
     let navigate = useNavigate();
     const state = useLocation();
 
     useEffect(() => {
         api.getCategories().then(data => {
-            setItems(data);
+            setItems(data.content);
+            setTotalPages(data.totalPages);
         });
         setRefresh(false)
     },[refresh, state]);
@@ -54,6 +58,11 @@ export default function CategoriesLayout() {
         }
 
         setItems([...items.filter(el => el.cateName.toLowerCase().includes(searchValue.value.toLowerCase() || ''))])
+    }
+
+    const onPaginated = (newActivePage) => {
+        setActivePage(newActivePage)
+        setRefresh(true)
     }
 
     return (
@@ -147,6 +156,13 @@ export default function CategoriesLayout() {
                     }
                 </Body>
             </Table>
+            <ClayPaginationWithBasicItems
+            active={activePage}
+            ellipsisBuffer={2}
+            ellipsisProps={{ "aria-label": "More", title: "More" }}
+            onActiveChange={onPaginated}
+            totalPages={totalPages}
+            />
         </>
     )
 }

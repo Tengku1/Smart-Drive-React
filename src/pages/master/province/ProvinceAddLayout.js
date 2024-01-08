@@ -23,7 +23,7 @@ export default function ProvinceAddLayout() {
 
     useEffect(() => {
         zonesApi.getZones().then(data => {
-            setZones(data);
+            setZones(data.content);
         });
         if (zones.length > 0) {
             setFormValues({ ...formValues, provZonesId: zones[0].zonesId });

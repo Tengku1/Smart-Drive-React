@@ -23,7 +23,7 @@ export default function RegionPlatAddLayout() {
 
     useEffect(() => {
         provinceApi.getProvince().then(data => {
-            setProvince(data);
+            setProvince(data.content);
         });
         if (province.length > 0) {
             setFormValues({ ...formValues, regpProvId: province[0].provId });

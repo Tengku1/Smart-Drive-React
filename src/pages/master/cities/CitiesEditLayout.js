@@ -22,7 +22,7 @@ export default function CitiesEditLayout() {
 
     useEffect(() => {
         provinceApi.getProvince().then(data => {
-            setProvince(data);
+            setProvince(data.content);
         });
     },[]);
 
