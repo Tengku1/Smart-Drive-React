@@ -22,7 +22,7 @@ export default function AreaWorkGroupEditLayout() {
 
     useEffect(() => {
         citiesApi.getCities().then(data => {
-            setCities(data);
+            setCities(data.content);
         });
     },[]);
 

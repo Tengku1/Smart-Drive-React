@@ -18,11 +18,12 @@ export default function InsuranceTypeLayout() {
     const [refresh, setRefresh] = useState({ search: '' })
     const [activePage, setActivePage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [totalDataSize, setTotalDataSize] = useState(10);
     let navigate = useNavigate();
     const state = useLocation();
 
     useEffect(() => {
-        api.getInsurances().then(data => {
+        api.getInsurances(activePage-1, totalDataSize).then(data => {
             setItems(data.content);
             setTotalPages(data.totalPages);
         });

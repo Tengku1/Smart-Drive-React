@@ -2,10 +2,16 @@ import axios from "axios";
 import config from "../../configs/axios.config";
 
 export class TemplateTaskApi {
-    async getTesta() {
+    async getTesta(page,size) {
         try {
-            const result = await axios.get(`${config.smartDrive}/testa`);
-            return  result.data;
+            let result;
+            if(!page) {
+                result = await axios.get(`${config.smartDrive}/testa`);
+            } else {
+                result = await axios.get(`${config.smartDrive}/testa?page=${page}&size=${size}`);
+            }
+            
+            return result.data;
         } catch (error) {
             return error;
         }

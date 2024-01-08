@@ -2,10 +2,16 @@ import axios from "axios";
 import config from "../../configs/axios.config";
 
 export class ProvinceApi {
-    async getProvince() {
+    async getProvince(page,size) {
         try {
-            const result = await axios.get(`${config.smartDrive}/provinsi`);
-            return  result.data;
+            let result;
+            if(!page) {
+                result = await axios.get(`${config.smartDrive}/provinsi`);
+            } else {
+                result = await axios.get(`${config.smartDrive}/provinsi?page=${page}&size=${size}`);
+            }
+            
+            return result.data;
         } catch (error) {
             return error;
         }

@@ -2,10 +2,16 @@ import axios from "axios";
 import config from "../../configs/axios.config";
 
 export class InsuranceApi {
-    async getInsurances() {
+    async getInsurances(page,size) {
         try {
-            const result = await axios.get(`${config.smartDrive}/inty`);
-            return  result.data;
+            let result;
+            if(!page) {
+                result = await axios.get(`${config.smartDrive}/inty`);
+            } else {
+                result = await axios.get(`${config.smartDrive}/inty?page=${page}&size=${size}`);
+            }
+            
+            return result.data;
         } catch (error) {
             return error;
         }

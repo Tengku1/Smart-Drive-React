@@ -2,10 +2,16 @@ import axios from "axios";
 import config from "../../configs/axios.config";
 
 export class ZonesApi {
-    async getZones() {
+    async getZones(page,size) {
         try {
-            const result = await axios.get(`${config.smartDrive}/zones`);
-            return  result.data;
+            let result;
+            if(!page) {
+                result = await axios.get(`${config.smartDrive}/zones`);
+            } else {
+                result = await axios.get(`${config.smartDrive}/zones?page=${page}&size=${size}`);
+            }
+            
+            return result.data;
         } catch (error) {
             return error;
         }

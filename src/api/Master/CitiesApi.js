@@ -2,10 +2,16 @@ import axios from "axios";
 import config from "../../configs/axios.config";
 
 export class CitiesApi {
-    async getCities() {
+    async getCities(page,size) {
         try {
-            const result = await axios.get(`${config.smartDrive}/cities`);
-            return  result.data;
+            let result;
+            if(!page) {
+                result = await axios.get(`${config.smartDrive}/cities`);
+            } else {
+                result = await axios.get(`${config.smartDrive}/cities?page=${page}&size=${size}`);
+            }
+            
+            return result.data;
         } catch (error) {
             return error;
         }

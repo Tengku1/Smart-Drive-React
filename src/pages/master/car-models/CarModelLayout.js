@@ -20,9 +20,10 @@ export default function CarModelLayout() {
     const state = useLocation();
     const [activePage, setActivePage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [totalDataSize, setTotalDataSize] = useState(10);
 
     useEffect(() => {
-        api.getCarModels().then(data => {
+        api.getCarModels(activePage-1, totalDataSize).then(data => {
             setItems(data.content);
             setTotalPages(data.totalPages);
         });

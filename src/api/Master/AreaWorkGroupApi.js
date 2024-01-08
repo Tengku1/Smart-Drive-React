@@ -4,8 +4,14 @@ import config from "../../configs/axios.config";
 export class AreaWorkGroupApi {
     async getAreaWorkGroup(page,size) {
         try {
-            const result = await axios.get(`${config.smartDrive}/arwg?page=${page}&size=${size}`);
-            return  result.data;
+            let result;
+            if(!page) {
+                result = await axios.get(`${config.smartDrive}/arwg`);
+            } else {
+                result = await axios.get(`${config.smartDrive}/arwg?page=${page}&size=${size}`);
+            }
+
+            return result.data;
         } catch (error) {
             return error;
         }

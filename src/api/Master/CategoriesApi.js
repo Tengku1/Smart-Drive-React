@@ -2,10 +2,16 @@ import axios from "axios";
 import config from "../../configs/axios.config";
 
 export class CategoriesApi {
-    async getCategories() {
+    async getCategories(page,size) {
         try {
-            const result = await axios.get(`${config.smartDrive}/category`);
-            return  result.data;
+            let result;
+            if(!page) {
+                result = await axios.get(`${config.smartDrive}/category`);
+            } else {
+                result = await axios.get(`${config.smartDrive}/category?page=${page}&size=${size}`);
+            }
+            
+            return result.data;
         } catch (error) {
             return error;
         }
